@@ -42,7 +42,7 @@
 				:auto-scroll="autoScroll"
 				:show-send-icon="showSendIcon"
 				:show-files="showFiles"
-				:show-audio="showAudio"
+				:show-audio="simplifiedMode ? false : showAudio"
 				:audio-bit-rate="audioBitRate"
 				:audio-sample-rate="audioSampleRate"
 				:show-emojis="showEmojis"
@@ -65,6 +65,7 @@
 				:accepted-files="acceptedFiles"
 				:templates-text="templatesText"
 				:username-options="usernameOptions"
+        :simplified-mode="simplifiedMode"
 				@toggle-rooms-list="toggleRoomsList"
 				@room-info="roomInfo"
 				@fetch-messages="fetchMessages"
@@ -200,7 +201,8 @@ export default {
 		usernameOptions: {
 			type: Object,
 			default: () => ({ minUsers: 3, currentUser: false })
-		}
+		},
+    simplifiedMode: { type: Boolean, default: false }
 	},
 
 	emits: [
