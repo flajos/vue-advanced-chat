@@ -173,6 +173,7 @@
 			:audio-sample-rate="audioSampleRate"
 			:init-reply-message="initReplyMessage"
 			:init-edit-message="initEditMessage"
+      :simplified-mode="simplifiedMode"
 			@update-edited-message-id="editedMessageId = $event"
 			@edit-message="$emit('edit-message', $event)"
 			@send-message="$emit('send-message', $event)"

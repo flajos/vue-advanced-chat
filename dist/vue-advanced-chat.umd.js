@@ -33949,8 +33949,8 @@ var RoomsList_component = normalizeComponent(
 )
 
 /* harmony default export */ const RoomsList = (RoomsList_component.exports);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-85.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[4]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/lib/Room/Room.vue?vue&type=template&id=0296aa37
-var Roomvue_type_template_id_0296aa37_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-85.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[4]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/lib/Room/Room.vue?vue&type=template&id=da69a71e
+var Roomvue_type_template_id_da69a71e_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -34173,7 +34173,8 @@ var Roomvue_type_template_id_0296aa37_render = function render() {
       "audio-bit-rate": _vm.audioBitRate,
       "audio-sample-rate": _vm.audioSampleRate,
       "init-reply-message": _vm.initReplyMessage,
-      "init-edit-message": _vm.initEditMessage
+      "init-edit-message": _vm.initEditMessage,
+      "simplified-mode": _vm.simplifiedMode
     },
     on: {
       "update-edited-message-id": function updateEditedMessageId($event) {
@@ -34202,7 +34203,7 @@ var Roomvue_type_template_id_0296aa37_render = function render() {
     })], null, true)
   })], 2);
 };
-var Roomvue_type_template_id_0296aa37_staticRenderFns = [];
+var Roomvue_type_template_id_da69a71e_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-85.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[4]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/lib/Room/RoomHeader/RoomHeader.vue?vue&type=template&id=938fbc28
 
@@ -34480,10 +34481,10 @@ var RoomHeader_component = normalizeComponent(
 )
 
 /* harmony default export */ const RoomHeader = (RoomHeader_component.exports);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-85.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[4]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/lib/Room/RoomFooter/RoomFooter.vue?vue&type=template&id=4393ef9a
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-85.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[4]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/lib/Room/RoomFooter/RoomFooter.vue?vue&type=template&id=b6067b04
 
 
-var RoomFootervue_type_template_id_4393ef9a_render = function render() {
+var RoomFootervue_type_template_id_b6067b04_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -34773,9 +34774,9 @@ var RoomFootervue_type_template_id_4393ef9a_render = function render() {
     })];
   })], 2) : _vm._e()])])], 1);
 };
-var RoomFootervue_type_template_id_4393ef9a_staticRenderFns = [];
+var RoomFootervue_type_template_id_b6067b04_staticRenderFns = [];
 
-;// CONCATENATED MODULE: ./src/lib/Room/RoomFooter/RoomFooter.vue?vue&type=template&id=4393ef9a
+;// CONCATENATED MODULE: ./src/lib/Room/RoomFooter/RoomFooter.vue?vue&type=template&id=b6067b04
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.symbol.async-iterator.js
 var es_symbol_async_iterator = __webpack_require__(6412);
@@ -40434,6 +40435,10 @@ var RoomFootervue_type_script_lang_js_require = __webpack_require__(9650),
     initEditMessage: {
       type: Object,
       "default": null
+    },
+    simplifiedMode: {
+      type: Boolean,
+      "default": false
     }
   },
   emits: ['edit-message', 'send-message', 'update-edited-message-id', 'textarea-action-handler', 'typing-message'],
@@ -40586,6 +40591,9 @@ var RoomFootervue_type_script_lang_js_require = __webpack_require__(9650),
     onPasteImage: function onPasteImage(pasteEvent) {
       var _pasteEvent$clipboard,
         _this4 = this;
+      if (this.simplifiedMode) {
+        return;
+      }
       var items = (_pasteEvent$clipboard = pasteEvent.clipboardData) === null || _pasteEvent$clipboard === void 0 ? void 0 : _pasteEvent$clipboard.items;
       if (items) {
         Array.from(items).forEach(function (item) {
@@ -40987,8 +40995,8 @@ var RoomFootervue_type_script_lang_js_require = __webpack_require__(9650),
 ;
 var RoomFooter_component = normalizeComponent(
   RoomFooter_RoomFootervue_type_script_lang_js,
-  RoomFootervue_type_template_id_4393ef9a_render,
-  RoomFootervue_type_template_id_4393ef9a_staticRenderFns,
+  RoomFootervue_type_template_id_b6067b04_render,
+  RoomFootervue_type_template_id_b6067b04_staticRenderFns,
   false,
   null,
   null,
@@ -43051,8 +43059,8 @@ var RoomMessage_component = normalizeComponent(
 ;
 var Room_component = normalizeComponent(
   Room_Roomvue_type_script_lang_js,
-  Roomvue_type_template_id_0296aa37_render,
-  Roomvue_type_template_id_0296aa37_staticRenderFns,
+  Roomvue_type_template_id_da69a71e_render,
+  Roomvue_type_template_id_da69a71e_staticRenderFns,
   false,
   null,
   null,

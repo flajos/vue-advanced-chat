@@ -242,7 +242,8 @@ export default {
 		audioBitRate: { type: Number, required: true },
 		audioSampleRate: { type: Number, required: true },
 		initReplyMessage: { type: Object, default: null },
-		initEditMessage: { type: Object, default: null }
+		initEditMessage: { type: Object, default: null },
+    simplifiedMode: { type: Boolean, default: false }
 	},
 
 	emits: [
@@ -420,8 +421,12 @@ export default {
 				this.filteredTemplatesText = []
 			} else this.resetMessage()
 		},
-		onPasteImage(pasteEvent) {
-			const items = pasteEvent.clipboardData?.items
+    onPasteImage(pasteEvent) {
+      if (this.simplifiedMode) {
+        return
+      }
+
+      const items = pasteEvent.clipboardData?.items
 
 			if (items) {
 				Array.from(items).forEach(item => {
