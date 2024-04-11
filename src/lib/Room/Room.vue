@@ -84,6 +84,7 @@
                   >
                     <div class="vac-text-username">
                       <span v-if="m.senderId !== currentUserId">
+                        TEST MESSAGE DELETE THIS!
                         {{ m.username }}
                       </span>
                     </div>
