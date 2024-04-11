@@ -33939,8 +33939,8 @@ var RoomsList_component = normalizeComponent(
 )
 
 /* harmony default export */ const RoomsList = (RoomsList_component.exports);
-;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[4]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/lib/Room/Room.vue?vue&type=template&id=0cdbf0ac
-var Roomvue_type_template_id_0cdbf0ac_render = function render() {
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[4]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/lib/Room/Room.vue?vue&type=template&id=22fecaf6
+var Roomvue_type_template_id_22fecaf6_render = function render() {
   var _vm = this,
     _c = _vm._self._c;
   return _c('div', {
@@ -34067,7 +34067,7 @@ var Roomvue_type_template_id_0cdbf0ac_render = function render() {
       }
     }, [_c('div', {
       staticClass: "vac-text-username"
-    }, [m.senderId !== _vm.currentUserId ? _c('span', [_vm._v(" TEST MESSAGE DELETE THIS! " + _vm._s(m.username) + " ")]) : _vm._e()]), _vm._v(" " + _vm._s(m.content) + " "), _c('div', {
+    }, [m.senderId !== _vm.currentUserId ? _c('span', [_vm._v(" " + _vm._s(m.username) + " ")]) : _vm._e()]), _vm._v(" TEST MESSAGE DELETE THIS! 22 " + _vm._s(m.content) + " "), _c('div', {
       staticClass: "vac-text-timestamp"
     }, [_c('span', [_vm._v(_vm._s(m.timestamp))])])])])])]);
   }) : _c('transition-group', {
@@ -34192,7 +34192,7 @@ var Roomvue_type_template_id_0cdbf0ac_render = function render() {
     })], null, true)
   })], 2);
 };
-var Roomvue_type_template_id_0cdbf0ac_staticRenderFns = [];
+var Roomvue_type_template_id_22fecaf6_staticRenderFns = [];
 
 ;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/@vue/vue-loader-v15/lib/loaders/templateLoader.js??ruleSet[1].rules[4]!./node_modules/@vue/vue-loader-v15/lib/index.js??vue-loader-options!./src/lib/Room/RoomHeader/RoomHeader.vue?vue&type=template&id=938fbc28
 
@@ -43041,8 +43041,8 @@ var RoomMessage_component = normalizeComponent(
 ;
 var Room_component = normalizeComponent(
   Room_Roomvue_type_script_lang_js,
-  Roomvue_type_template_id_0cdbf0ac_render,
-  Roomvue_type_template_id_0cdbf0ac_staticRenderFns,
+  Roomvue_type_template_id_22fecaf6_render,
+  Roomvue_type_template_id_22fecaf6_staticRenderFns,
   false,
   null,
   null,
