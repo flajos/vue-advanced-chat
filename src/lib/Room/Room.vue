@@ -87,7 +87,6 @@
                         {{ m.username }}
                       </span>
                     </div>
-                    TEST MESSAGE DELETE THIS! 22
                     {{ m.content }}
                     <div class="vac-text-timestamp">
                       <span>{{ m.timestamp }}</span>
