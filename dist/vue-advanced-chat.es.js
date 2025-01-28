@@ -35167,6 +35167,9 @@ const _sfc_main = {
     showFilesCasted() {
       return this.castBoolean(this.showFiles);
     },
+    simplifiedModeCasted() {
+      return this.castBoolean(this.simplifiedMode);
+    },
     showAudioCasted() {
       return this.castBoolean(this.showAudio);
     },
@@ -35496,7 +35499,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         "templates-text": $options.templatesTextCasted,
         "username-options": $options.usernameOptionsCasted,
         "emoji-data-source": $props.emojiDataSource,
-        "simplified-mode": $props.simplifiedMode,
+        "simplified-mode": $options.simplifiedModeCasted,
         onToggleRoomsList: $options.toggleRoomsList,
         onRoomInfo: $options.roomInfo,
         onFetchMessages: $options.fetchMessages,
