@@ -70,7 +70,7 @@
 				:templates-text="templatesTextCasted"
 				:username-options="usernameOptionsCasted"
 				:emoji-data-source="emojiDataSource"
-                :simplified-mode="simplifiedMode"
+                :simplified-mode="simplifiedModeCasted"
 				@toggle-rooms-list="toggleRoomsList"
 				@room-info="roomInfo"
 				@fetch-messages="fetchMessages"
@@ -311,6 +311,9 @@ export default {
 		showFilesCasted() {
 			return this.castBoolean(this.showFiles)
 		},
+        simplifiedModeCasted() {
+            return this.castBoolean(this.simplifiedMode)
+        },
 		showAudioCasted() {
 			return this.castBoolean(this.showAudio)
 		},
