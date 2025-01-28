@@ -247,7 +247,8 @@ export default {
 		initReplyMessage: { type: Object, default: null },
 		initEditMessage: { type: Object, default: null },
 		droppedFiles: { type: Array, default: null },
-		emojiDataSource: { type: String, default: undefined }
+		emojiDataSource: { type: String, default: undefined },
+        simplifiedMode: { type: Boolean, default: false }
 	},
 
 	emits: [
@@ -435,8 +436,12 @@ export default {
 				this.filteredTemplatesText = []
 			} else this.resetMessage()
 		},
-		onPasteImage(pasteEvent) {
-			const items = pasteEvent.clipboardData?.items
+    onPasteImage(pasteEvent) {
+      if (this.simplifiedMode) {
+        return
+      }
+
+      const items = pasteEvent.clipboardData?.items
 
 			if (items) {
 				Array.from(items).forEach(item => {

@@ -71,11 +71,38 @@
 							<template v-for="(idx, name) in $slots" #[name]="data">
 								<slot :name="name" v-bind="data" />
 							</template>
-						</loader>
-					</div>
-					<transition-group :key="roomId" name="vac-fade-message" tag="span">
-						<div v-for="(m, i) in messages" :key="m.indexId || m._id">
-							<room-message
+            </loader>
+          </div>
+          <template v-if="simplifiedMode">
+            <div v-for="m in messages" :key="m.indexId || m._id" class="vac-message-wrapper">
+              <div class="vac-message-box"
+                :class="{'vac-offset-current' : m.senderId === currentUserId}"
+              >
+                <div class="vac-message-container">
+                  <div
+                    class="vac-message-card"
+                    :class="{
+                    'vac-message-current':
+                    m.senderId === currentUserId
+                }"
+                  >
+                    <div class="vac-text-username">
+                      <span v-if="m.senderId !== currentUserId">
+                        {{ m.username }}
+                      </span>
+                    </div>
+                    {{ m.content }}
+                    <div class="vac-text-timestamp">
+                      <span>{{ m.timestamp }}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+          <transition-group v-else :key="roomId" name="vac-fade-message" tag="span">
+            <div v-for="(m, i) in messages" :key="m.indexId || m._id">
+              <room-message
 								:current-user-id="currentUserId"
 								:message="m"
 								:index="i"
@@ -155,6 +182,7 @@
 			:init-edit-message="initEditMessage"
 			:dropped-files="droppedFiles"
 			:emoji-data-source="emojiDataSource"
+            :simplified-mode="simplifiedMode"
 			@update-edited-message-id="editedMessageId = $event"
 			@edit-message="$emit('edit-message', $event)"
 			@send-message="$emit('send-message', $event)"
@@ -225,7 +253,8 @@ export default {
 		scrollDistance: { type: Number, required: true },
 		templatesText: { type: Array, default: null },
 		usernameOptions: { type: Object, required: true },
-		emojiDataSource: { type: String, default: undefined }
+		emojiDataSource: { type: String, default: undefined },
+        simplifiedMode: { type: Boolean, default: false }
 	},
 
 	emits: [
@@ -316,8 +345,21 @@ export default {
 				if (oldVal?.length === newVal?.length - 1) {
 					this.newMessages = []
 				}
-				setTimeout(() => (this.loadingMoreMessages = false))
-			}
+
+                if (this.simplifiedMode) {
+                  // A simple message that you receive from someone else that has only one row of text is about 67px
+                  // According to the original code in onMessageAdded() the "67" should be the exact height of the last message
+                  // The + 60 comes from line 495.
+                  const autoScrollOffset = 67 + 60
+                  const scrolledUp = this.getBottomScroll(this.$refs.scrollContainer) > autoScrollOffset
+
+                  if (!scrolledUp) {
+                    this.scrollToBottom()
+                  }
+                }
+
+                setTimeout(() => (this.loadingMoreMessages = false))
+            }
 		},
 		messagesLoaded(val) {
 			if (val) this.updateLoadingMessages(false)

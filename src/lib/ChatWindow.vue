@@ -44,7 +44,7 @@
 				:auto-scroll="autoScrollCasted"
 				:show-send-icon="showSendIconCasted"
 				:show-files="showFilesCasted"
-				:show-audio="showAudioCasted"
+                :show-audio="simplifiedMode ? false : showAudio"
 				:audio-bit-rate="audioBitRate"
 				:audio-sample-rate="audioSampleRate"
 				:show-emojis="showEmojisCasted"
@@ -70,6 +70,7 @@
 				:templates-text="templatesTextCasted"
 				:username-options="usernameOptionsCasted"
 				:emoji-data-source="emojiDataSource"
+                :simplified-mode="simplifiedMode"
 				@toggle-rooms-list="toggleRoomsList"
 				@room-info="roomInfo"
 				@fetch-messages="fetchMessages"
@@ -207,7 +208,8 @@ export default {
 			type: [Object, String],
 			default: () => ({ minUsers: 3, currentUser: false })
 		},
-		emojiDataSource: { type: String, default: undefined }
+		emojiDataSource: { type: String, default: undefined },
+        simplifiedMode: { type: Boolean, default: false }
 	},
 
 	emits: [
